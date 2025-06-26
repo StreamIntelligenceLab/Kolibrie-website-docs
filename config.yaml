@@ -3,6 +3,10 @@ languageCode: 'en-us'
 title: 'Kolibrie Documentation'
 theme: 'kolibrie-docs'
 
+# Summary configuration
+summaryLength: 30
+hasCJKLanguage: false
+
 params:
   description: 'Comprehensive documentation for Kolibrie database engine'
   github_repo: 'https://github.com/StreamIntelligenceLab/Kolibrie-website-docs'

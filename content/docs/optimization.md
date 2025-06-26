@@ -2,6 +2,7 @@
 title: "Optimization"
 weight: 4
 aliases: ["/docs/optimization/"]
+summary: "Optimize query performance with indexing strategies, memory management, and parallel processing techniques."
 ---
 
 ## Table of Contents

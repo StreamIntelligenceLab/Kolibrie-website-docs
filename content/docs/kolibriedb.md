@@ -2,6 +2,7 @@
 title: "Introduction"
 weight: 2
 aliases: ["/docs/kolibriedb/"]
+summary: "Comprehensive documentation of the Kolibrie Database Engine, a high-performance, scalable system for managing RDF data with SPARQL queries."
 ---
 
 Welcome to the comprehensive documentation of the **Kolibrie Database Engine**, a high-performance, scalable, and extensible system designed to manage and query RDF (Resource Description Framework) data using the SPARQL query language. This documentation aims to provide an in-depth understanding of the engine's architecture, data structures, indexing mechanisms, query parsing, execution strategies, and performance optimizations. Whether you are a database architect, a software developer, or an academic researcher, this guide will equip you with the knowledge required to effectively utilize and extend the database engine.

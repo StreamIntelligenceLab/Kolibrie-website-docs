@@ -2,6 +2,7 @@
 title: "Kolibrie Database Tutorial"
 weight: 2
 aliases: ["/docs/kolibrie-tutorial/"]
+summary: "Learn Kolibrie's system architecture, SPARQL queries, and advanced processing modes with practical examples."
 ---
 
 ## Table of Contents

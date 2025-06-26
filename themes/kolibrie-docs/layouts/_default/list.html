@@ -24,32 +24,50 @@
         </header>
 
         <!-- File listing -->
-        <div class="space-y-2">
+        <div class="space-y-4">
             {{ range .Pages }}
-            <div class="group flex items-center space-x-4 p-3 hover:bg-gruvbox-bg-s rounded-lg transition-colors duration-200">
-                <div class="flex-shrink-0">
-                    <svg class="w-5 h-5 text-gruvbox-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                    </svg>
-                </div>
-                <div class="flex-1 min-w-0">
-                    <a href="{{ .RelPermalink }}" class="block">
-                        <p class="text-gruvbox-fg font-medium group-hover:text-gruvbox-aqua transition-colors">
-                            {{ .Title }}
-                        </p>
-                        {{ if .Summary }}
-                        <p class="text-gruvbox-fg3 text-sm mt-1 truncate">{{ .Summary }}</p>
+            <div class="group block p-4 bg-gruvbox-bg-s hover:bg-gruvbox-bg1 border border-gruvbox-bg2 rounded-lg transition-colors duration-200">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0 mt-1">
+                        <svg class="w-5 h-5 text-gruvbox-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <a href="{{ .RelPermalink }}" class="block">
+                            <h3 class="text-xl font-semibold text-gruvbox-fg group-hover:text-gruvbox-aqua transition-colors mb-2">
+                                {{ .Title }}
+                            </h3>
+                            {{ if .Summary }}
+                            <p class="text-gruvbox-fg3 text-sm line-clamp-2">{{ .Summary | truncate 120 }}</p>
+                            {{ else if .Description }}
+                            <p class="text-gruvbox-fg3 text-sm line-clamp-2">{{ .Description | truncate 120 }}</p>
+                            {{ else }}
+                            <p class="text-gruvbox-fg3 text-sm line-clamp-2">{{ .Content | plainify | truncate 120 }}</p>
+                            {{ end }}
+                        </a>
+                        {{ if .Date }}
+                        <div class="text-gruvbox-fg4 text-xs mt-2">
+                            {{ .Date.Format "January 2, 2006" }}
+                        </div>
                         {{ end }}
-                    </a>
+                    </div>
                 </div>
-                {{ if .Date }}
-                <div class="text-gruvbox-fg4 text-sm">
-                    {{ .Date.Format "Jan 2" }}
-                </div>
-                {{ end }}
             </div>
             {{ end }}
         </div>
     </div>
 </div>
+
+<style>
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    max-height: 3em;
+}
+</style>
 {{ end }}

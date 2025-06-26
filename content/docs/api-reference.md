@@ -2,6 +2,7 @@
 title: "API Reference"
 weight: 5
 aliases: ["/docs/api-reference/", "/api/"]
+summary: "Complete API reference for QueryBuilder with filtering, joining, sorting, and aggregation functions in Rust and Python."
 ---
 
 ## Table of Contents

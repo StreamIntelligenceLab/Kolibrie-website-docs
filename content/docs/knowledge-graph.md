@@ -2,6 +2,7 @@
 title: "Knowledge Graph"
 weight: 3
 aliases: ["/docs/knowledge-graph/"]
+summary: "Learn to create and query knowledge graphs with RDF data using Kolibrie's powerful graph capabilities."
 ---
 
 ## Table of Contents

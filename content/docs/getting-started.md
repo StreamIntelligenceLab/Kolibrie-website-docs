@@ -2,6 +2,7 @@
 title: "Getting Started"
 weight: 1
 aliases: ["/docs/getting-started/"]
+summary: "Welcome to Kolibrie! This guide will help you get started quickly with installation and basic usage."
 ---
 
 Welcome to Kolibrie! This guide will help you get started quickly.
