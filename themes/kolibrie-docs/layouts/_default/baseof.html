@@ -7,6 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -65,14 +70,6 @@
             --aqua: #427b58;
             --orange: #af3a03;
             --gray: #928374;
-            --red-dim: #cc2412;
-            --green-dim: #98971a;
-            --yellow-dim: #d79921;
-            --blue-dim: #458598;
-            --purple-dim: #b16286;
-            --aqua-dim: #689d6a;
-            --orange-dim: #d65d0e;
-            --gray-dim: #7c6f64;
         }
 
         .dark {
@@ -96,16 +93,191 @@
             --aqua: #8ec07c;
             --gray: #928374;
             --orange: #fe8019;
-            --red-dim: #cc2412;
-            --green-dim: #98971a;
-            --yellow-dim: #d79921;
-            --blue-dim: #458588;
-            --purple-dim: #b16286;
-            --aqua-dim: #689d6a;
-            --gray-dim: #a89984;
-            --orange-dim: #d65d0e;
         }
 
+        /* Markdown Content Styling */
+        .markdown-content {
+            color: var(--fg);
+            line-height: 1.7;
+            max-width: none;
+        }
+        
+        .markdown-content h1 {
+            color: var(--aqua);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--bg2);
+            padding-bottom: 0.75rem;
+        }
+        
+        .markdown-content h2 {
+            color: var(--blue);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--bg2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .markdown-content h3 {
+            color: var(--green);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .markdown-content h4 {
+            color: var(--yellow);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .markdown-content h5 {
+            color: var(--purple);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .markdown-content h6 {
+            color: var(--orange);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .markdown-content p {
+            margin-top: 0;
+            margin-bottom: 1.25rem;
+            text-align: left;
+        }
+        
+        .markdown-content pre {
+            background-color: var(--bg1) !important;
+            border: 1px solid var(--bg2);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+            font-size: 0.875rem;
+        }
+        
+        .markdown-content code {
+            background-color: var(--bg1);
+            color: var(--orange);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875em;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+        }
+        
+        .markdown-content pre code {
+            background-color: transparent !important;
+            padding: 0;
+            color: var(--fg);
+            border-radius: 0;
+        }
+        
+        .markdown-content blockquote {
+            border-left: 4px solid var(--blue);
+            background-color: var(--bg-s);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--fg2);
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        
+        .markdown-content ul, .markdown-content ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .markdown-content li {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+        
+        .markdown-content ul li {
+            list-style: none;
+            position: relative;
+        }
+        
+        .markdown-content ul li::before {
+            content: "▶";
+            color: var(--aqua);
+            font-size: 0.75rem;
+            position: absolute;
+            left: -1.5rem;
+            top: 0.25rem;
+        }
+        
+        .markdown-content ol li {
+            list-style: decimal;
+        }
+        
+        .markdown-content a {
+            color: var(--aqua);
+            text-decoration: underline;
+            text-decoration-color: var(--bg2);
+            transition: all 0.2s;
+        }
+        
+        .markdown-content a:hover {
+            color: var(--green);
+            text-decoration-color: var(--green);
+        }
+        
+        .markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            border: 1px solid var(--bg2);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .markdown-content th {
+            background-color: var(--bg1);
+            color: var(--aqua);
+            font-weight: 600;
+            padding: 1rem;
+            border-bottom: 1px solid var(--bg2);
+            text-align: left;
+        }
+        
+        .markdown-content td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--bg2);
+        }
+        
+        .markdown-content tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--bg2);
+            margin: 2rem 0;
+        }
+        
+        .markdown-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        /* Scrollbar styling */
         * {
             scrollbar-width: thin;
             scrollbar-color: var(--bg2) var(--bg);
@@ -122,183 +294,6 @@
         *::-webkit-scrollbar-thumb {
             background-color: var(--bg2);
             border-radius: 4px;
-        }
-
-        /* Markdown Content Styling */
-        .prose {
-            color: var(--fg);
-        }
-        
-        .prose h1 {
-            color: var(--aqua);
-            font-size: 2rem;
-            font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--bg2);
-            padding-bottom: 0.5rem;
-        }
-        
-        .prose h2 {
-            color: var(--blue);
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            border-bottom: 1px solid var(--bg2);
-            padding-bottom: 0.25rem;
-        }
-        
-        .prose h3 {
-            color: var(--green);
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-top: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .prose h4 {
-            color: var(--yellow);
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .prose h5 {
-            color: var(--purple);
-            font-size: 1rem;
-            font-weight: 600;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .prose h6 {
-            color: var(--orange);
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .prose p {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            line-height: 1.7;
-        }
-        
-        .prose pre {
-            background-color: var(--bg1);
-            border: 1px solid var(--bg2);
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin: 1rem 0;
-            overflow-x: auto;
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--fg);
-        }
-        
-        .prose code {
-            background-color: var(--bg1);
-            color: var(--orange);
-            padding: 0.125rem 0.25rem;
-            border-radius: 0.25rem;
-            font-size: 0.875em;
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        .prose pre code {
-            background-color: transparent;
-            padding: 0;
-            color: var(--fg);
-        }
-
-        :root .prose pre code {
-            color: white;
-        }
-        
-        .prose blockquote {
-            border-left: 4px solid var(--blue);
-            background-color: var(--bg-s);
-            padding: 1rem;
-            margin: 1rem 0;
-            font-style: italic;
-            color: var(--fg2);
-        }
-        
-        .prose ul, .prose ol {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-        
-        .prose li {
-            margin: 0.5rem 0;
-        }
-        
-        .prose a {
-            color: var(--aqua);
-            text-decoration: underline;
-            text-decoration-color: var(--bg2);
-            transition: all 0.2s;
-        }
-        
-        .prose a:hover {
-            color: var(--green);
-            text-decoration-color: var(--green);
-        }
-        
-        .prose table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            border: 1px solid var(--bg2);
-            border-radius: 0.5rem;
-            overflow: hidden;
-        }
-        
-        .prose th {
-            background-color: var(--bg1);
-            color: var(--aqua);
-            font-weight: 600;
-            padding: 0.75rem;
-            border-bottom: 1px solid var(--bg2);
-            text-align: left;
-        }
-        
-        .prose td {
-            padding: 0.75rem;
-            border-bottom: 1px solid var(--bg2);
-        }
-        
-        .prose tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .prose hr {
-            border: none;
-            border-top: 1px solid var(--bg2);
-            margin: 2rem 0;
-        }
-        
-        .prose img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        /* Table of Contents Styling */
-        .prose ul li {
-            list-style: none;
-            position: relative;
-        }
-        
-        .prose ul li::before {
-            content: "▶";
-            color: var(--aqua);
-            font-size: 0.75rem;
-            position: absolute;
-            left: -1rem;
         }
 
         /* AI Chat Styles */
