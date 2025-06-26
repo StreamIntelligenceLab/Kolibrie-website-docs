@@ -1,0 +1,12 @@
+name = "Kolibrie Docs Theme"
+license = "MIT"
+licenselink = "https://github.com/StreamIntelligenceLab/Kolibrie-website-docs/blob/main/LICENSE"
+description = "A terminal-style documentation theme for Kolibrie project"
+homepage = "https://github.com/StreamIntelligenceLab/Kolibrie-website-docs"
+tags = ["documentation", "terminal", "gruvbox", "responsive"]
+features = ["navigation", "syntax-highlighting", "ai-chat", "dark-mode"]
+min_version = "0.121.0"
+
+[author]
+  name = "StreamIntelligenceLab"
+  homepage = "https://github.com/StreamIntelligenceLab"
