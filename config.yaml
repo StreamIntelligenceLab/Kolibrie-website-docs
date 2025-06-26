@@ -1,0 +1,38 @@
+baseURL: 'https://streamintelligencelab.github.io/Kolibrie-website-docs/'
+languageCode: 'en-us'
+title: 'Kolibrie Documentation'
+theme: 'kolibrie-docs'
+
+params:
+  description: 'Comprehensive documentation for Kolibrie database engine'
+  github_repo: 'https://github.com/StreamIntelligenceLab/Kolibrie-website-docs'
+  edit_page: true
+
+menu:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 1
+    - name: "Documentation"
+      url: "/docs/"
+      weight: 2
+    - name: "API Reference"
+      url: "/docs/api-reference/"
+      weight: 3
+    - name: "GitHub"
+      url: "https://github.com/ladroid"
+      weight: 4
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: github
+    lineNos: true
+    codeFences: true
+
+outputs:
+  home: ["HTML", "RSS"]
+  page: ["HTML"]
+  section: ["HTML", "RSS"]

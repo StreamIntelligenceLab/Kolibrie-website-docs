@@ -1,0 +1,55 @@
+{{ define "main" }}
+<div class="max-w-4xl">
+    <!-- Terminal-style header -->
+    <div class="bg-gruvbox-bg-s rounded-t-lg border border-gruvbox-bg2 border-b-0 p-4">
+        <div class="flex items-center space-x-2 text-sm text-gruvbox-fg3">
+            <span class="text-gruvbox-green">kolibrie@docs</span>
+            <span>:</span>
+            <span class="text-gruvbox-blue">~/{{ .Section | default "root" }}</span>
+            <span class="text-gruvbox-yellow">$</span>
+            <span class="text-gruvbox-purple">ls</span>
+            <span class="text-gruvbox-orange">-la</span>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="bg-gruvbox-bg rounded-b-lg border border-gruvbox-bg2 border-t-0 p-6 lg:p-8">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-gruvbox-fg mb-4">{{ .Title }}</h1>
+            {{ if .Content }}
+            <div class="prose prose-lg max-w-none text-gruvbox-fg2">
+                {{ .Content }}
+            </div>
+            {{ end }}
+        </header>
+
+        <!-- File listing -->
+        <div class="space-y-2">
+            {{ range .Pages }}
+            <div class="group flex items-center space-x-4 p-3 hover:bg-gruvbox-bg-s rounded-lg transition-colors duration-200">
+                <div class="flex-shrink-0">
+                    <svg class="w-5 h-5 text-gruvbox-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <a href="{{ .RelPermalink }}" class="block">
+                        <p class="text-gruvbox-fg font-medium group-hover:text-gruvbox-aqua transition-colors">
+                            {{ .Title }}
+                        </p>
+                        {{ if .Summary }}
+                        <p class="text-gruvbox-fg3 text-sm mt-1 truncate">{{ .Summary }}</p>
+                        {{ end }}
+                    </a>
+                </div>
+                {{ if .Date }}
+                <div class="text-gruvbox-fg4 text-sm">
+                    {{ .Date.Format "Jan 2" }}
+                </div>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}

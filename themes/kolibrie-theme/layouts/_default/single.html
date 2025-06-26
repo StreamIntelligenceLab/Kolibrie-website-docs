@@ -1,0 +1,40 @@
+{{ define "main" }}
+<article class="article">
+    <header class="article-header">
+        <h1>{{ .Title }}</h1>
+        {{ if .Date }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{ end }}
+    </header>
+
+    <div class="article-content">
+        {{ .Content }}
+    </div>
+
+    <nav class="page-navigation">
+        {{ with .PrevInSection }}
+        <div class="nav-prev">
+            <a href="{{ .RelPermalink }}" class="nav-btn prev-btn">
+                <span class="nav-arrow">←</span>
+                <div class="nav-text">
+                    <span class="nav-label">Previous</span>
+                    <span class="nav-title">{{ .Title }}</span>
+                </div>
+            </a>
+        </div>
+        {{ end }}
+
+        {{ with .NextInSection }}
+        <div class="nav-next">
+            <a href="{{ .RelPermalink }}" class="nav-btn next-btn">
+                <div class="nav-text">
+                    <span class="nav-label">Next</span>
+                    <span class="nav-title">{{ .Title }}</span>
+                </div>
+                <span class="nav-arrow">→</span>
+            </a>
+        </div>
+        {{ end }}
+    </nav>
+</article>
+{{ end }}

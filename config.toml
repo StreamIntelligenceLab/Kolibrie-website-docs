@@ -1,0 +1,27 @@
+baseURL = 'https://streamintelligencelab.github.io/Kolibrie-website/docs/'
+languageCode = 'en-us'
+title = 'Kolibrie Documentation'
+theme = 'kolibrie-docs'
+
+# Ensure relative URLs work properly
+relativeURLs = false
+canonifyURLs = true
+
+[params]
+  description = 'Stream Reasoning Documentation'
+
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    url = '/'
+    weight = 10
+  [[menu.main]]
+    name = 'Back to Main Site'
+    url = '../'
+    weight = 30
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false

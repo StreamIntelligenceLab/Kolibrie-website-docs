@@ -1,0 +1,70 @@
+{{ define "main" }}
+<div class="max-w-4xl mx-auto">
+    <!-- Terminal-style header -->
+    <div class="bg-gruvbox-bg-s rounded-t-lg border border-gruvbox-bg2 border-b-0 p-4">
+        <div class="flex items-center space-x-2 text-sm text-gruvbox-fg3">
+            <span class="text-gruvbox-green">kolibrie@docs</span>
+            <span>:</span>
+            <span class="text-gruvbox-blue">~/{{ .Section }}</span>
+            <span class="text-gruvbox-yellow">$</span>
+            <span class="text-gruvbox-purple">cat</span>
+            <span class="text-gruvbox-fg">{{ .Title | lower | replaceRE " " "-" }}.md</span>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="bg-gruvbox-bg rounded-b-lg border border-gruvbox-bg2 border-t-0 p-6 lg:p-8">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-gruvbox-fg mb-4">{{ .Title }}</h1>
+            {{ if .Date }}
+            <div class="flex items-center space-x-4 text-sm text-gruvbox-fg3">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                    <span class="text-gruvbox-yellow">Last modified:</span> {{ .Date.Format "January 2, 2006" }}
+                </time>
+            </div>
+            {{ end }}
+        </header>
+
+        <div class="prose prose-lg max-w-none">
+            {{ .Content }}
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12 pt-8 border-t border-gruvbox-bg2">
+            <!-- Previous Page -->
+            <div class="flex justify-start">
+                {{ with .NextInSection }}
+                <a href="{{ .RelPermalink }}" class="group flex items-center space-x-3 p-4 bg-gruvbox-bg-s hover:bg-gruvbox-bg1 border border-gruvbox-bg2 rounded-lg transition-all duration-200 hover:border-gruvbox-aqua">
+                    <div class="flex-shrink-0">
+                        <svg class="w-5 h-5 text-gruvbox-aqua group-hover:text-gruvbox-green transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="min-w-0">
+                        <p class="text-xs text-gruvbox-fg3 uppercase tracking-wider font-medium">Previous</p>
+                        <p class="text-gruvbox-fg font-medium truncate">{{ .Title }}</p>
+                    </div>
+                </a>
+                {{ end }}
+            </div>
+
+            <!-- Next Page -->
+            <div class="flex justify-end">
+                {{ with .PrevInSection }}
+                <a href="{{ .RelPermalink }}" class="group flex items-center space-x-3 p-4 bg-gruvbox-bg-s hover:bg-gruvbox-bg1 border border-gruvbox-bg2 rounded-lg transition-all duration-200 hover:border-gruvbox-aqua">
+                    <div class="min-w-0 text-right">
+                        <p class="text-xs text-gruvbox-fg3 uppercase tracking-wider font-medium">Next</p>
+                        <p class="text-gruvbox-fg font-medium truncate">{{ .Title }}</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <svg class="w-5 h-5 text-gruvbox-aqua group-hover:text-gruvbox-green transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

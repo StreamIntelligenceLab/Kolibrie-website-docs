@@ -1,0 +1,44 @@
+{{ define "main" }}
+<div class="max-w-4xl">
+    <!-- Terminal Welcome -->
+    <div class="bg-gruvbox-bg-s rounded-lg border border-gruvbox-bg2 p-6 lg:p-8 mb-8">
+        <div class="flex items-center space-x-2 text-sm text-gruvbox-fg3 mb-4">
+            <span class="text-gruvbox-green">kolibrie@docs</span>
+            <span>:</span>
+            <span class="text-gruvbox-blue">~</span>
+            <span class="text-gruvbox-yellow">$</span>
+            <span class="text-gruvbox-purple">welcome</span>
+        </div>
+        
+        <div class="space-y-4">
+            <h1 class="text-4xl font-bold text-gruvbox-fg">
+                Welcome to <span class="text-gruvbox-aqua">{{ .Site.Title }}</span>
+            </h1>
+            <p class="text-gruvbox-fg2 text-lg">{{ .Site.Params.description }}</p>
+        </div>
+    </div>
+
+    <!-- Quick Navigation -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="/docs/" class="group block p-6 bg-gruvbox-bg border border-gruvbox-bg2 rounded-lg hover:border-gruvbox-aqua hover:bg-gruvbox-bg-s transition-all duration-200">
+            <div class="flex items-center space-x-3 mb-3">
+                <svg class="w-6 h-6 text-gruvbox-blue group-hover:text-gruvbox-aqua transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <h3 class="text-xl font-semibold text-gruvbox-fg group-hover:text-gruvbox-aqua transition-colors">Documentation</h3>
+            </div>
+            <p class="text-gruvbox-fg3">Comprehensive guides and tutorials to get you started</p>
+        </a>
+
+        <a href="/docs/api-reference/" class="group block p-6 bg-gruvbox-bg border border-gruvbox-bg2 rounded-lg hover:border-gruvbox-green hover:bg-gruvbox-bg-s transition-all duration-200">
+            <div class="flex items-center space-x-3 mb-3">
+                <svg class="w-6 h-6 text-gruvbox-orange group-hover:text-gruvbox-green transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+                <h3 class="text-xl font-semibold text-gruvbox-fg group-hover:text-gruvbox-green transition-colors">API Reference</h3>
+            </div>
+            <p class="text-gruvbox-fg3">Complete API documentation with Rust and Python examples</p>
+        </a>
+    </div>
+</div>
+{{ end }}

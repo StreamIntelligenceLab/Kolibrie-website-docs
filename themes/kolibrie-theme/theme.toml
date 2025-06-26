@@ -1,0 +1,12 @@
+name = "Kolibrie Theme"
+license = "MIT"
+licenselink = "https://github.com/yourname/kolibrie-theme/blob/master/LICENSE"
+description = "A custom documentation theme for Kolibrie project"
+homepage = "https://github.com/yourname/kolibrie-theme"
+tags = ["documentation", "minimal", "responsive"]
+features = ["navigation", "syntax-highlighting"]
+min_version = "0.41.0"
+
+[author]
+  name = "Your Name"
+  homepage = "https://your-site.com"
